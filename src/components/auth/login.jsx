@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -86,6 +87,9 @@ const login = () => {
                       Submit
                     </button>
                   </div>
+                  <Link to="/forgetpwd">
+                    <h6 className="text-center mt-2">Forgot Password?</h6>
+                  </Link>
                 </form>
               </div>
             </div>

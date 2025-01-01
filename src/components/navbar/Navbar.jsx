@@ -68,18 +68,18 @@ const Navbar = () => {
                             Home
                         </Link>
                         <Link to="/login" className="nav-item" style={{ "--i": "5" }}>
-                            Login
+                            Login / Signup
                         </Link>
-                        <Link to="/signup" className="nav-item" style={{ "--i": "5" }}>
+                        {/* <Link to="/signup" className="nav-item" style={{ "--i": "5" }}>
                             Signup
-                        </Link>
-                        <Link to="/dashboard" className="nav-item" style={{ "--i": "5" }}>
+                        </Link> */}
+                        {/* <Link to="/dashboard" className="nav-item" style={{ "--i": "5" }}>
                             Dashboard
-                        </Link>
+                        </Link> */}
 
                     </nav>
 
-                    <div className='w-auto d-flex justify-content-end'>
+                    {/* <div className='w-auto d-flex justify-content-end'>
                         <ul className="list-inline mb-0 w-auto">
                             <DropdownButton
                                 id="dropdown-button-dark-example2"
@@ -109,7 +109,7 @@ const Navbar = () => {
                             </Dropdown.Item>
                             </DropdownButton>
                         </ul>
-                    </div>
+                    </div> */}
                 </header>
             </div>
             

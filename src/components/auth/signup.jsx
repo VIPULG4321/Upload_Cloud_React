@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const signup = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,13 +20,13 @@ const signup = () => {
   console.log(email, password);
 
   return (
-    <div className="w-100" style={{ marginTop: "80px" }}>
+    <div className="w-100" style={{ marginTop: "120px" }}>
       <div className="container mx-800">
         <div className="col-md-12 border p-0 login-main">
           <div className="row">
 
           <div className="col-md-6 ps-0 pe-0">
-              <div className="px-5 py-5">
+              <div className="px-5 py-4">
                 <h2>Register Now</h2>
                 <form>
                   <div className="form-group">
@@ -75,6 +76,9 @@ const signup = () => {
                       Submit
                     </button>
                   </div>
+                  {/* <Link to="/forgetpwd">
+                    <h6 className="text-center mt-2">Forgot Password?</h6>
+                  </Link> */}
                 </form>
               </div>
             </div>

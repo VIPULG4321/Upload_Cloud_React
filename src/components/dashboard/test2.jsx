@@ -68,6 +68,7 @@ const FileItem = ({ fileName, size, uploadDate, onDelete, onDownload }) => {
 
 const Component1 = () => {
   const [filterData, setFilterData] = useState([]);
+  const [searchQuery, setsearchQuery] = useState(0);
 
   const categories = [
     { title: "Documents", count: "480 files", bgClass: "bg-primary", eventHandle: "handlePdf" },
@@ -103,11 +104,15 @@ const Component1 = () => {
     "by Size",
   ];
 
+  
   const handleSearch = (e) => {
-    console.log(e.target.value);
+    
+    console.log(e.target.value.length);
 
     let filteredData = files.filter((file)=>file.fileName.toLowerCase().includes(e.target.value.toLowerCase()));
+    setsearchQuery(e.target.value);
     setFilterData(filteredData);
+    
   }
   console.log(filterData);
 
@@ -183,7 +188,11 @@ const Component1 = () => {
         return handleSortByDate();
       
       default:
-        // return <File className="file-icon text-secondary" />;
+        return (
+          <div>
+            <h1>Not Found</h1>
+          </div>
+        )
     }
   }
 
@@ -224,7 +233,7 @@ const Component1 = () => {
 
       <div className="container py-4">
         <div className="d-flex justify-content-between mb-3">
-          <h2 className="h4 mb-3">Recent Files</h2>
+          <h2 className="h4 mb-3">All Files</h2>
           <div className="dash-drop">
             <li className="dropdown-menu-parrent">
               <Dropdown>
@@ -264,7 +273,8 @@ const Component1 = () => {
         
         <div className="card">
           <div className="card-body p-0">
-            {
+            
+            {/* {
               filterData.length > 0 ? filterData.map((file, index) => (
               <FileItem
                 key={index}
@@ -280,7 +290,30 @@ const Component1 = () => {
                 onDelete={() => console.log("Delete:", file.fileName)}
                 onDownload={() => console.log("Download:", file.fileName)}
               />
-            ))
+            )) 
+            } */}
+            {
+              filterData.length > 0 ? (
+                filterData.map((file, index) => (
+                  <FileItem
+                    key={index}
+                    {...file}
+                    onDelete={() => console.log("Delete:", file.fileName)}
+                    onDownload={() => console.log("Download:", file.fileName)}
+                  />
+                ))
+              ) : searchQuery && searchQuery.length > 0 ? ( // Check if a search is active
+                <p>No results found</p>
+              ) : (
+                files.map((file, index) => (
+                  <FileItem
+                    key={index}
+                    {...file}
+                    onDelete={() => console.log("Delete:", file.fileName)}
+                    onDownload={() => console.log("Download:", file.fileName)}
+                  />
+                ))
+              )
             }
           </div>
         </div>
